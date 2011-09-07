@@ -3,6 +3,7 @@
         "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
         xmlns:h="http://java.sun.com/jsf/html"
+        xmlns:f="http://java.sun.com/jsf/core"
         xmlns:cc="http://java.sun.com/jsf/composite">
 <head>
     <title>A collapsible panel composite component</title>
@@ -16,11 +17,15 @@
 <cc:implementation>
     <h:panelGroup layout="block" styleClass="collapsiblePanel-header">
         <h:commandButton id="toggle" actionListener="#{cc.toggle}" styleClass="collapsiblePanel-img"
-                image="#{resource[cc.collapsed ? 'jsflive:plus.png' : 'jsflive:minus.png']}"/>
+                image="#{resource[cc.collapsed ? 'jsflive:plus.png' : 'jsflive:minus.png']}">
+            <f:ajax render="@this panel-content"/>
+        </h:commandButton>
         <cc:renderFacet name="header"/>
     </h:panelGroup>
-    <h:panelGroup layout="block" rendered="#{!cc.collapsed}">
-        <cc:insertChildren/>
+    <h:panelGroup id="panel-content" layout="block">
+        <h:panelGroup rendered="#{!cc.collapsed}">
+            <cc:insertChildren/>
+        </h:panelGroup>
     </h:panelGroup>
     <h:outputStylesheet library="jsflive" name="components.css"/>
 </cc:implementation>
