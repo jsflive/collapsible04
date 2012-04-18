@@ -4,3 +4,4 @@ http://jsflive.wordpress.com/2011/09/07/collapsiblepanel-ajax/
 
 It can be started directly with the Maven Jetty Plugin. Simply call the following command:
 mvn jetty:run
+
