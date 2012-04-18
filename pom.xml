@@ -77,11 +77,13 @@
             <plugin>
                 <groupId>org.mortbay.jetty</groupId>
                 <artifactId>jetty-maven-plugin</artifactId>
-                <version>7.4.5.v20110725</version>
+                <version>7.5.4.v20111024</version>
                 <configuration>
                     <webAppConfig>
                         <contextPath>/${project.artifactId}</contextPath>
                     </webAppConfig>
+                    <stopKey>stop</stopKey>
+                    <stopPort>8081</stopPort>
                 </configuration>
             </plugin>
         </plugins>
@@ -110,7 +112,7 @@
     </build>
 	
     <properties>
-        <myfaces.version>2.0.4</myfaces.version>
-        <mojarra.version>2.0.1</mojarra.version>
+        <myfaces.version>2.1.3</myfaces.version>
+        <mojarra.version>2.1.6</mojarra.version>
     </properties>
 </project>
